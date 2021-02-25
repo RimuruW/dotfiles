@@ -186,6 +186,7 @@ extract() {
 		shift
 	done
 }
+[[ -f "${HOME}/.bashrc" ]] && source "${HOME}/.bashrc"
 
 # ALIAS
 alias ...=../..
