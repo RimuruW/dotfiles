@@ -69,37 +69,17 @@ fi
 # aloxaf:fzf-tab 是一个能够极大提升 zsh 补全体验的插件。它通过 hook zsh 补全系统的底层函数 compadd 来截获补全列表，从而实现了在补全命令行参数、变量、目录栈和文件时都能使用 fzf 进行选择的功能。
 [[ $(command -v fzf) ]] && zinit ice lucid pick"fzf-tab.zsh" && zinit light _local/fzf-tab
 
-# 解压插件，输x 压缩包名称（例如`x 233.7z`或`x 233.tar.xz`) 即可解压文件。
-# zinit ice svn && zinit snippet OMZ::plugins/extract
-
 # 记录访问目录，输z获取,输`z 目录名称`快速跳转  This plugin defines the [z command](https://github.com/rupa/z) that tracks your most visited directories and allows you to access them with very few keystrokes.
 zinit ice lucid wait="1" pick"z.plugin.zsh" && zinit light _local/z && unsetopt BG_NICE
 
 # The git plugin provides many aliases and a few useful functions. git 的一些 alias,例如将 git clone 简化为 gcl.
 zinit ice lucid pick"git.plugin.zsh" wait="1" && zinit light _local/git
 
-# man 手册彩色输出
-# zinit ice lucid wait="3" pick"colored-man-pages.plugin.zsh" && zinit snippet 'https://github.com/ohmyzsh/ohmyzsh/master/plugins/colored-man-pages/colored-man-pages.plugin.zsh'
-
 # 语法高亮插件，速度比 zsh-syntax-highlighting 更快。(Short name F-Sy-H). Syntax-highlighting for Zshell – fine granularity, number of features, 40 work hours themes
 zinit ice wait lucid pick"fast-syntax-highlighting.plugin.zsh" atinit"ZINIT[COMPINIT_OPTS]=-C; zicompinit; zicdreplay" && zinit light _local/fast-syntax-highlighting
 
 # 自动建议插件 It suggests commands as you type based on history and completions.
 zinit ice wait lucid pick"zsh-autosuggestions.zsh" atload'_zsh_autosuggest_start' && zinit light _local/zsh-autosuggestions
-
-# Easily prefix your current or previous commands with `sudo` by pressing <kbd>esc</kbd> twice 按两次 ESC 键,可以在当前命令前加上 sudo 前缀  
-# zinit ice lucid wait="2" pick"sudo.plugin.zsh" && zinit snippet 'https://github.com/ohmyzsh/ohmyzsh/master/plugins/sudo/sudo.plugin.zsh'
-
-# 加载 OMZ 框架及部分插件
-zinit snippet OMZ::lib/history.zsh
-zinit snippet OMZ::lib/key-bindings.zsh
-zinit snippet OMZ::lib/clipboard.zsh
-zinit snippet OMZ::lib/completion.zsh
-zinit snippet OMZ::lib/theme-and-appearance.zsh
-zinit snippet OMZ::plugins/colored-man-pages/colored-man-pages.plugin.zsh
-zinit snippet OMZ::plugins/sudo/sudo.plugin.zsh
-# zinit ice svn
-# zinit snippet OMZ::plugins/extract
 
 # theme
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
